@@ -91,7 +91,9 @@
 		}
 	};
 	BlockAdBlock.prototype._destroyBait = function() {
-		window.document.body.removeChild(this._var.bait);
+		if (this._var.bait && this._var.bait.parentNode) {
+			this._var.bait.parentNode.removeChild(this._var.bait);
+		}
 		this._var.bait = null;
 		
 		if(this._options.debug === true) {
